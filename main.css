@@ -1,0 +1,245 @@
+
+.primary-header {
+	display: block;
+	background: #b4ddff;
+	background: -webkit-linear-gradient(to right, #84fab0, #8fd3f4);
+	background:    -moz-linear-gradient(to right, #84fab0, #8fd3f4);
+	background:			linear-gradient(to right, #84fab0, #8fd3f4);
+}
+
+body {
+	background-color: #c6efdc;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.fill {
+	flex: 1;
+}
+
+
+.text_bg {
+	background-color: #bae1ff;
+	border-radius: 5%;
+	margin: 1rem 0;
+}
+
+p {
+	padding: 1rem 1rem;
+	font: 300 1.2rem "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font-family: "Times New Roman", Times, serif;
+	font-weight: 600;
+	font-size: 36px;
+}
+
+.logo {
+	font-size: 3em;
+}
+
+.img-w {
+	max-width: 80vw;
+	max-height: 60vh;
+	margin: 0 auto;
+}
+
+a {
+	color: #13344c;/*#a9b2b9;*/
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color : #648880;
+}
+
+.current,
+a:active,
+a:hover,
+a:focus {
+	color: #000;
+}
+
+footer {
+	background-color: #3ea199;
+	width: 100%;
+	text-align: center;
+	flex-shrink: 0;
+}
+
+.spacer-row {
+	background-color: #c6efdc;
+	height: 5rem;
+	width: 100%;
+}
+
+.nav-footer {
+	margin: 1em auto;
+	padding: 1em;
+}
+
+.link-divider {
+	border-right: solid black 2px;
+	margin-right: 15px;
+	padding-right: 20px;
+
+}
+
+small {
+	color: #000;
+	font-size: 8px;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+/*================================
+LIGHTBOX
+================================*/
+
+._row > ._column {
+  padding: 0 8px;
+}
+
+._row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+._column {
+  float: left;
+  width: 20%;
+}
+
+.spacer {
+	height: 2rem;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+  width: 10rem;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img_preview {
+	width: 100%;
+}
+
+.img_full {
+	position: absolute;
+	width: 80%;
+	clip: rect(10px,100px,10px,100px);
+}
