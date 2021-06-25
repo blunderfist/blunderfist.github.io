@@ -239,7 +239,5 @@ img.hover-shadow {
 }
 
 .img_full {
-	position: absolute;
 	width: 80%;
-	clip: rect(10px,100px,10px,100px);
 }
