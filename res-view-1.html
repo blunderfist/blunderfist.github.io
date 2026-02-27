@@ -1,0 +1,82 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- This tells search engines NOT to show this page in results -->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- This specifically tells Googlebot to stay away -->
+    <meta name="googlebot" content="noindex">
+
+    <!-- 2. LINKEDIN-ONLY SCRIPT -->
+    <script>
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const isPreview = urlParams.has('preview'); // Typing ?preview=true at the end bypasses
+        const ref = document.referrer.toLowerCase();
+        
+        // Allowed keywords in the referrer
+        const allowed = ["linkedin.com", "lnkd.in", "android", "linkedin"];
+        const isFromLinkedIn = allowed.some(keyword => ref.includes(keyword));
+
+        // If NOT from LinkedIn AND NOT a direct visit (empty referrer) AND NOT using preview key
+        if (!isFromLinkedIn && ref !== '' && !isPreview) {
+            window.location.href = "https://www.google.com";
+        }
+      })();
+    </script>
+
+    <title>{{ site.data.content.name }} | Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+</head>
+<body class="bg-slate-50 p-8">
+    <div class="max-w-3xl mx-auto bg-white p-12 shadow-sm rounded-xl">
+        
+        <!-- Header pulled from YAML -->
+        <header class="border-b pb-8">
+            <h1 class="text-4xl font-bold tracking-tight">{{ site.data.content.name }}</h1>
+            <p class="text-blue-600 text-lg font-medium">{{ site.data.content.title }}</p>
+            <p class="text-slate-400 mt-2">{{ site.data.content.email }} • {{ site.data.content.linkedin }}</p>
+        </header>
+
+        <!-- Summary -->
+        <section class="mt-8">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Profile</h2>
+            <p class="text-slate-600">{{ site.data.content.summary }}</p>
+        </section>
+
+        <!-- Experience Loop -->
+        <section class="mt-10">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Experience</h2>
+            {% for job in site.data.content.jobs %}
+            <div class="mb-8">
+                <div class="flex justify-between font-bold">
+                    <h3>{{ job.role }}</h3>
+                    <span class="text-slate-400">{{ job.date }}</span>
+                </div>
+                <p class="text-blue-600">{{ job.company }}</p>
+                <ul class="mt-2 list-disc ml-5 text-slate-600">
+                    {% for bullet in job.bullets %}
+                    <li>{{ bullet }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </section>
+
+        <!-- Skills Loop -->
+        <section class="mt-10 pt-8 border-t">
+            <div class="flex flex-wrap gap-2">
+                {% for skill in site.data.content.skills %}
+                <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold uppercase">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
