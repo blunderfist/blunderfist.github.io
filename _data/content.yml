@@ -1,1 +1,48 @@
 
+# PERSONAL INFO
+name: "ALEX STEVENS"
+title: "Senior Technical Project Manager"
+email: "alex.stevens.pro@email.com"
+linkedin: "linkedin.com/in/alex-stevens-demo"
+github: "github.com/alex-dev-demo"
+
+# PROFESSIONAL SUMMARY
+summary: >
+  Dynamic Technical Project Manager with 8+ years of experience leading cross-functional 
+  engineering teams. Expert in Agile methodologies, cloud infrastructure, and 
+  bridging the gap between complex technical requirements and business objectives. 
+  Proven track record of delivering $1M+ projects 20% ahead of schedule.
+
+# SKILLS (Categorized)
+skills:
+  - "Agile / Scrum / Kanban"
+  - "AWS & Cloud Architecture"
+  - "JavaScript (React/Node.js)"
+  - "Python & Automation"
+  - "JIRA & Confluence"
+  - "Stakeholder Management"
+  - "Risk Mitigation"
+
+# EXPERIENCE
+jobs:
+  - company: "TechNova Solutions"
+    role: "Senior Project Manager"
+    date: "2021 — PRESENT"
+    bullets:
+      - "Directed a team of 15 engineers to launch a cloud-based ERP solution, resulting in a 25% increase in operational efficiency for enterprise clients."
+      - "Managed project budgets exceeding $1.5M while achieving a 15% cost reduction through strategic resource allocation."
+      - "Implemented automated sprint reporting tools that reduced manual documentation time by 10 hours per week."
+  
+  - company: "Creative Digital Agency"
+    role: "Full Stack Developer & Team Lead"
+    date: "2017 — 2021"
+    bullets:
+      - "Led the front-end redesign of 12 high-traffic e-commerce platforms using React and Tailwind CSS."
+      - "Reduced site load times by 40% through image optimization and lazy-loading implementation."
+      - "Mentored 4 junior developers and established a peer-review system that decreased production bugs by 30%."
+
+# EDUCATION
+education:
+  - school: "University of Technology"
+    degree: "B.S. in Computer Science"
+    year: "2017"
