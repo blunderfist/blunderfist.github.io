@@ -84,28 +84,59 @@ layout: null
                 <p class="text-theme-body leading-relaxed text-lg">{{ site.data.content.summary }}</p>
             </section>
 
-            <!-- EXPERIENCE -->
-            <section class="mb-10">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-6">Experience</h2>
-                {% for job in site.data.content.jobs %}
-                <div class="mb-10 last:mb-0">
-                    <div class="flex flex-col md:flex-row justify-between items-baseline">
-                        <h3 class="text-xl font-bold text-theme-heading">{{ job.role }}</h3>
-                        <span class="text-sm font-bold text-theme-muted italic">{{ job.date }}</span>
+        <!-- EXPERIENCE -->
+        <section class="mb-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary">Experience</h2>
+                <span class="text-[10px] text-theme-muted uppercase tracking-wider font-bold">Click role to expand</span>
+            </div>
+            
+            {% for job in site.data.content.jobs %}
+            <!-- 1. The <details> tag acts as our container. The 'group' class lets us track if it's open -->
+            <details class="group mb-8 last:mb-0 border-b border-theme-border pb-6 last:border-0 last:pb-0">
+                
+                <!-- 2. The <summary> tag is the clickable header -->
+                <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <div class="w-full transition-all duration-200 group-hover:opacity-80">
+                        
+                        <div class="flex flex-col md:flex-row justify-between items-baseline">
+                            <!-- The title changes color when the group is open -->
+                            <h3 class="text-xl font-bold text-theme-heading group-open:text-theme-primary transition-colors">{{ job.role }}</h3>
+                            <span class="text-sm font-bold text-theme-muted italic">{{ job.date }}</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mt-1">
+                            <p class="text-theme-primary font-semibold">{{ job.company }}</p>
+                            
+                            <!-- 3. Dynamic "View Details" text that toggles automatically -->
+                            <div class="text-xs font-bold text-theme-muted bg-theme-pill-bg px-2 py-1 rounded border border-theme-border">
+                                <span class="flex items-center gap-1 group-open:hidden">
+                                    View Details <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                                </span>
+                                <span class="hidden items-center gap-1 group-open:flex">
+                                    Hide Details <i class="fa-solid fa-chevron-up text-[10px]"></i>
+                                </span>
+                            </div>
+                        </div>
+        
                     </div>
-                    <p class="text-theme-primary font-semibold mb-3">{{ job.company }}</p>
-                    <ul class="space-y-2">
+                </summary>
+                
+                <!-- 4. The hidden content that reveals when clicked -->
+                <div class="mt-5 animate-fade-in pl-2 border-l-2 border-theme-border/50">
+                    <ul class="space-y-3">
                         {% for bullet in job.bullets %}
                         <li class="flex items-start text-theme-body">
-                            <span class="text-theme-accent mr-2 mt-1.5 text-[10px]">●</span>
-                            <span>{{ bullet }}</span>
+                            <span class="text-theme-accent mr-3 mt-1.5 text-[10px]">●</span>
+                            <span class="leading-relaxed">{{ bullet }}</span>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-                {% endfor %}
-            </section>
-
+        
+            </details>
+            {% endfor %}
+        </section>
             <!-- SKILLS -->
             <section class="pt-8 border-t border-theme-border">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-4">Core Competencies</h2>
