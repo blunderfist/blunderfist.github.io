@@ -2,14 +2,19 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This tells search engines NOT to show this page in results -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. PRIVACY: Prevent search engines from finding this -->
     <meta name="robots" content="noindex, nofollow">
-    <!-- This specifically tells Googlebot to stay away -->
     <meta name="googlebot" content="noindex">
 
+    <title>{{ site.data.content.name }} | Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <!-- 2. LINKEDIN-ONLY SCRIPT -->
     <script>
       (function() {
@@ -28,55 +33,68 @@ layout: null
       })();
     </script>
 
-    <title>{{ site.data.content.name }} | Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body class="bg-slate-50 p-8">
-    <div class="max-w-3xl mx-auto bg-white p-12 shadow-sm rounded-xl">
+<body class="bg-slate-50 text-slate-900 antialiased p-4 md:p-12">
+
+    <div class="max-w-3xl mx-auto bg-white shadow-sm rounded-3xl overflow-hidden border border-slate-200">
         
-        <!-- Header pulled from YAML -->
-        <header class="border-b pb-8">
-            <h1 class="text-4xl font-bold tracking-tight">{{ site.data.content.name }}</h1>
-            <p class="text-blue-600 text-lg font-medium">{{ site.data.content.title }}</p>
-            <p class="text-slate-400 mt-2">{{ site.data.content.email }} • {{ site.data.content.linkedin }}</p>
+        <!-- HEADER -->
+        <header class="bg-slate-900 text-white p-10">
+            <h1 class="text-4xl font-bold tracking-tight uppercase">{{ site.data.content.name }}</h1>
+            <p class="text-blue-400 text-lg font-semibold mt-1">{{ site.data.content.title }}</p>
+            <div class="flex flex-wrap gap-4 mt-6 text-sm text-slate-400 font-medium">
+                <span><i class="fa-solid fa-envelope mr-1"></i> {{ site.data.content.email }}</span>
+                <span><i class="fa-brands fa-linkedin mr-1"></i> {{ site.data.content.linkedin }}</span>
+            </div>
         </header>
 
-        <!-- Summary -->
-        <section class="mt-8">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Profile</h2>
-            <p class="text-slate-600">{{ site.data.content.summary }}</p>
-        </section>
+        <div class="p-10">
+            <!-- SUMMARY -->
+            <section class="mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">Profile</h2>
+                <p class="text-slate-600 leading-relaxed text-lg">{{ site.data.content.summary }}</p>
+            </section>
 
-        <!-- Experience Loop -->
-        <section class="mt-10">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Experience</h2>
-            {% for job in site.data.content.jobs %}
-            <div class="mb-8">
-                <div class="flex justify-between font-bold">
-                    <h3>{{ job.role }}</h3>
-                    <span class="text-slate-400">{{ job.date }}</span>
+            <!-- EXPERIENCE -->
+            <section class="mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">Experience</h2>
+                {% for job in site.data.content.jobs %}
+                <div class="mb-10 last:mb-0">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-slate-800">{{ job.role }}</h3>
+                        <span class="text-sm font-bold text-slate-400 italic">{{ job.date }}</span>
+                    </div>
+                    <p class="text-blue-600 font-semibold mb-3">{{ job.company }}</p>
+                    <ul class="space-y-2">
+                        {% for bullet in job.bullets %}
+                        <li class="flex items-start text-slate-600">
+                            <span class="text-blue-500 mr-2 mt-1.5 text-[10px]">●</span>
+                            <span>{{ bullet }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <p class="text-blue-600">{{ job.company }}</p>
-                <ul class="mt-2 list-disc ml-5 text-slate-600">
-                    {% for bullet in job.bullets %}
-                    <li>{{ bullet }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
-        </section>
-
-        <!-- Skills Loop -->
-        <section class="mt-10 pt-8 border-t">
-            <div class="flex flex-wrap gap-2">
-                {% for skill in site.data.content.skills %}
-                <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold uppercase">{{ skill }}</span>
                 {% endfor %}
-            </div>
-        </section>
+            </section>
 
+            <!-- SKILLS -->
+            <section class="pt-8 border-t border-slate-100">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">Core Competencies</h2>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in site.data.content.skills %}
+                    <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-slate-200">
+                        {{ skill }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
     </div>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
