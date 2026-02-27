@@ -1,0 +1,42 @@
+/* assets/css/theme-80s-dark.css */
+:root {
+    /* Backgrounds & Cards - The Deep Void */
+    --color-bg: #05010a;        
+    --color-card: #130626;      
+    --color-border: #431d75;    
+    
+    /* Typography - Neon Lights */
+    --color-text: #fbeaff;      
+    --color-heading: #05d9e8;   /* Neon Cyan */
+    --color-body: #b39cd0;      /* Soft lavender */
+    --color-muted: #9d7bb0;     /* Muted violet */
+    
+    /* Brand Colors - Lasers & Arcades */
+    --color-primary: #ff2a6d;   /* Hot Neon Pink */
+    --color-accent: #ffe700;    /* Neon Yellow */
+    
+    /* Header specific */
+    --color-header-bg: #0b0316; /* Near black to contrast the card */
+    --color-header-text: #05d9e8; 
+    
+    /* Skill Pills */
+    --color-pill-bg: #2a104a;   
+    --color-pill-text: #05d9e8; 
+}
+
+/* 
+   OPTIONAL 80s BONUS: 
+   Add native neon glowing effects specifically for this theme! 
+*/
+h1, h3 {
+    text-shadow: 0 0 8px rgba(5, 217, 232, 0.5);
+}
+
+h2, p.text-theme-primary {
+    text-shadow: 0 0 8px rgba(255, 42, 109, 0.4);
+}
+
+/* Give the skill pills a subtle radioactive border glow */
+.bg-theme-pill-bg {
+    box-shadow: 0 0 10px rgba(67, 29, 117, 0.8);
+}
