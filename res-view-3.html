@@ -24,6 +24,11 @@ layout: null
 
     <!-- Security Script -->
     <script src="{{ '/assets/js/security.js' | relative_url }}"></script>
+    
+    <!-- THE FIX: Bring back the Tailwind CDN! -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -63,94 +68,4 @@ layout: null
             }
         }
     </script>
-  </head>
-<body class="bg-theme-bg text-theme-text antialiased p-4 md:p-12">
-
-    <div class="max-w-3xl mx-auto bg-theme-card shadow-sm rounded-3xl overflow-hidden border border-theme-border">
-        
-        <!-- HEADER -->
-        <header class="bg-theme-header-bg text-theme-header-text p-10">
-            <h1 class="text-4xl font-bold tracking-tight uppercase">{{ site.data.content.name }}</h1>
-            <p class="text-theme-accent text-lg font-semibold mt-1">{{ site.data.content.title }}</p>
-            <div class="flex flex-wrap gap-4 mt-6 text-sm text-theme-muted font-medium">
-                <span><i class="fa-solid fa-envelope mr-1"></i> {{ site.data.content.email }}</span>
-                <span><i class="fa-brands fa-linkedin mr-1"></i> {{ site.data.content.linkedin }}</span>
-            </div>
-        </header>
-
-        <div class="p-10">
-            <!-- SUMMARY -->
-            <section class="mb-10">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-3">Profile</h2>
-                <p class="text-theme-body leading-relaxed text-lg">{{ site.data.content.summary }}</p>
-            </section>
-
-        <!-- EXPERIENCE -->
-        <section class="mb-10">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary">Experience</h2>
-                <span class="text-[10px] text-theme-muted uppercase tracking-wider font-bold">Click role to expand</span>
-            </div>
-            
-            {% for job in site.data.content.jobs %}
-            <!-- 1. The <details> tag acts as our container. The 'group' class lets us track if it's open -->
-            <details class="group mb-8 last:mb-0 border-b border-theme-border pb-6 last:border-0 last:pb-0">
-                
-                <!-- 2. The <summary> tag is the clickable header -->
-                <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    <div class="w-full transition-all duration-200 group-hover:opacity-80">
-                        
-                        <div class="flex flex-col md:flex-row justify-between items-baseline">
-                            <!-- The title changes color when the group is open -->
-                            <h3 class="text-xl font-bold text-theme-heading group-open:text-theme-primary transition-colors">{{ job.role }}</h3>
-                            <span class="text-sm font-bold text-theme-muted italic">{{ job.date }}</span>
-                        </div>
-                        
-                        <div class="flex items-center justify-between mt-1">
-                            <p class="text-theme-primary font-semibold">{{ job.company }}</p>
-                            
-                            <!-- 3. Dynamic "View Details" text that toggles automatically -->
-                            <div class="text-xs font-bold text-theme-muted bg-theme-pill-bg px-2 py-1 rounded border border-theme-border">
-                                <span class="flex items-center gap-1 group-open:hidden">
-                                    View Details <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                                </span>
-                                <span class="hidden items-center gap-1 group-open:flex">
-                                    Hide Details <i class="fa-solid fa-chevron-up text-[10px]"></i>
-                                </span>
-                            </div>
-                        </div>
-        
-                    </div>
-                </summary>
-                
-                <!-- 4. The hidden content that reveals when clicked -->
-                <div class="mt-5 animate-fade-in pl-2 border-l-2 border-theme-border/50">
-                    <ul class="space-y-3">
-                        {% for bullet in job.bullets %}
-                        <li class="flex items-start text-theme-body">
-                            <span class="text-theme-accent mr-3 mt-1.5 text-[10px]">●</span>
-                            <span class="leading-relaxed">{{ bullet }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-        
-            </details>
-            {% endfor %}
-        </section>
-            <!-- SKILLS -->
-            <section class="pt-8 border-t border-theme-border">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-4">Core Competencies</h2>
-                <div class="flex flex-wrap gap-2">
-                    {% for skill in site.data.content.skills %}
-                    <span class="px-3 py-1 bg-theme-pill-bg text-theme-pill-text rounded-lg text-xs font-bold uppercase tracking-wider border border-theme-border">
-                        {{ skill }}
-                    </span>
-                    {% endfor %}
-                </div>
-            </section>
-        </div>
-    </div>
-
-</body>
-</html>
+</head>
