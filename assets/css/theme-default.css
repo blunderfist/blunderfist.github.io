@@ -1,0 +1,25 @@
+/* assets/css/theme-default.css */
+:root {
+    /* Backgrounds & Cards */
+    --color-bg: #f8fafc;        /* slate-50 */
+    --color-card: #ffffff;      /* white */
+    --color-border: #e2e8f0;    /* slate-200 */
+    
+    /* Typography */
+    --color-text: #0f172a;      /* slate-900 */
+    --color-heading: #1e293b;   /* slate-800 */
+    --color-body: #475569;      /* slate-600 */
+    --color-muted: #94a3b8;     /* slate-400 */
+    
+    /* Brand Colors (The "Blue" elements) */
+    --color-primary: #2563eb;   /* blue-600 */
+    --color-accent: #60a5fa;    /* blue-400 */
+    
+    /* Header specific */
+    --color-header-bg: #0f172a; /* slate-900 */
+    --color-header-text: #ffffff;
+    
+    /* Skill Pills */
+    --color-pill-bg: #f1f5f9;   /* slate-100 */
+    --color-pill-text: #334155; /* slate-700 */
+}
