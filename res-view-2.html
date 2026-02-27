@@ -1,0 +1,117 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Privacy -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex">
+
+    <title>{{ site.data.content.name }} | Resume</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+
+    <!-- Theme CSS (Swap this file to change themes) -->
+    <link rel="stylesheet" href="{{ '/assets/css/theme-default.css' | relative_url }}">
+
+    <!-- Security Script -->
+    <script src="{{ '/assets/js/security.js' | relative_url }}"></script>
+
+    <!-- Tailwind Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            bg: 'var(--color-bg)',
+                            card: 'var(--color-card)',
+                            border: 'var(--color-border)',
+                            text: 'var(--color-text)',
+                            heading: 'var(--color-heading)',
+                            body: 'var(--color-body)',
+                            muted: 'var(--color-muted)',
+                            primary: 'var(--color-primary)',
+                            accent: 'var(--color-accent)',
+                            'header-bg': 'var(--color-header-bg)',
+                            'header-text': 'var(--color-header-text)',
+                            'pill-bg': 'var(--color-pill-bg)',
+                            'pill-text': 'var(--color-pill-text)'
+                        }
+                    },
+                    fontFamily: {
+                        // Automatically applies 'Plus Jakarta Sans' globally
+                        sans: ['Plus Jakarta Sans', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-theme-bg text-theme-text antialiased p-4 md:p-12">
+
+    <div class="max-w-3xl mx-auto bg-theme-card shadow-sm rounded-3xl overflow-hidden border border-theme-border">
+        
+        <!-- HEADER -->
+        <header class="bg-theme-header-bg text-theme-header-text p-10">
+            <h1 class="text-4xl font-bold tracking-tight uppercase">{{ site.data.content.name }}</h1>
+            <p class="text-theme-accent text-lg font-semibold mt-1">{{ site.data.content.title }}</p>
+            <div class="flex flex-wrap gap-4 mt-6 text-sm text-theme-muted font-medium">
+                <span><i class="fa-solid fa-envelope mr-1"></i> {{ site.data.content.email }}</span>
+                <span><i class="fa-brands fa-linkedin mr-1"></i> {{ site.data.content.linkedin }}</span>
+            </div>
+        </header>
+
+        <div class="p-10">
+            <!-- SUMMARY -->
+            <section class="mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-3">Profile</h2>
+                <p class="text-theme-body leading-relaxed text-lg">{{ site.data.content.summary }}</p>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-6">Experience</h2>
+                {% for job in site.data.content.jobs %}
+                <div class="mb-10 last:mb-0">
+                    <div class="flex flex-col md:flex-row justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-theme-heading">{{ job.role }}</h3>
+                        <span class="text-sm font-bold text-theme-muted italic">{{ job.date }}</span>
+                    </div>
+                    <p class="text-theme-primary font-semibold mb-3">{{ job.company }}</p>
+                    <ul class="space-y-2">
+                        {% for bullet in job.bullets %}
+                        <li class="flex items-start text-theme-body">
+                            <span class="text-theme-accent mr-2 mt-1.5 text-[10px]">●</span>
+                            <span>{{ bullet }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </section>
+
+            <!-- SKILLS -->
+            <section class="pt-8 border-t border-theme-border">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-theme-primary mb-4">Core Competencies</h2>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in site.data.content.skills %}
+                    <span class="px-3 py-1 bg-theme-pill-bg text-theme-pill-text rounded-lg text-xs font-bold uppercase tracking-wider border border-theme-border">
+                        {{ skill }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
