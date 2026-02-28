@@ -13,27 +13,59 @@ layout: null
 
     <title>{{ site.data.content.name }} | Resume</title>
 
-    <!-- Fonts & Icons -->
+    <!-- NEW: 8-Bit Arcade & Terminal Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
-
-    <!-- Theme CSS (Swap this file to change themes) -->
-    <!-- <link rel="stylesheet" href="{{ '/assets/css/theme-default.css' | relative_url }}"> -->
-    <link rel="stylesheet" href="{{ '/assets/css/theme-80s-dark.css' | relative_url }}">
-
-    <!-- Security Script -->
     <script src="{{ '/assets/js/security.js' | relative_url }}"></script>
     
-    <!-- THE FIX: Bring back the Tailwind CDN! -->
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- EMBEDDED THEME: This guarantees the colors load even if testing locally -->
+    <style>
+        :root {
+            /* Backgrounds & Cards - The Deep Void */
+            --color-bg: #05010a;        
+            --color-card: #130626;      
+            --color-border: #431d75;    
+            
+            /* Typography - Neon Lights */
+            --color-text: #fbeaff;      
+            --color-heading: #05d9e8;   /* Neon Cyan */
+            --color-body: #b39cd0;      /* Soft lavender */
+            --color-muted: #9d7bb0;     /* Muted violet */
+            
+            /* Brand Colors - Lasers & Arcades */
+            --color-primary: #ff2a6d;   /* Hot Neon Pink */
+            --color-accent: #ffe700;    /* Neon Yellow */
+            
+            /* Header specific */
+            --color-header-bg: #0b0316; 
+            --color-header-text: #05d9e8; 
+            
+            /* Skill Pills */
+            --color-pill-bg: #2a104a;   
+            --color-pill-text: #05d9e8; 
+        }
+
+        /* 80s Arcade Glow Effects */
+        h1, h3 { text-shadow: 0 0 10px rgba(5, 217, 232, 0.6); }
+        h2, p.text-theme-primary { text-shadow: 0 0 10px rgba(255, 42, 109, 0.6); }
+        .bg-theme-pill-bg { box-shadow: 0 0 12px rgba(67, 29, 117, 0.9); }
+        
+        /* Custom scrollbar for that extra retro feel */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--color-primary); }
+    </style>
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    // 1. Add this animation block
                     keyframes: {
                         'fade-in': {
                             '0%': { opacity: '0', transform: 'translateY(-5px)' },
@@ -43,7 +75,6 @@ layout: null
                     animation: {
                         'fade-in': 'fade-in 0.3s ease-out forwards',
                     },
-                    // 2. Keep your existing colors
                     colors: {
                         theme: {
                             bg: 'var(--color-bg)',
@@ -62,10 +93,98 @@ layout: null
                         }
                     },
                     fontFamily: {
-                        sans:['Plus Jakarta Sans', 'sans-serif'], 
+                        // Terminal font for readability
+                        sans: ['VT323', 'monospace'], 
+                        // 8-bit font for headers
+                        arcade: ['"Press Start 2P"', 'cursive'], 
                     }
                 }
             }
         }
     </script>
 </head>
+<body class="bg-theme-bg text-theme-text antialiased p-4 md:p-12 text-xl">
+
+    <div class="max-w-3xl mx-auto bg-theme-card shadow-2xl shadow-theme-primary/20 rounded-xl overflow-hidden border-2 border-theme-border">
+        
+        <!-- HEADER -->
+        <header class="bg-theme-header-bg text-theme-header-text p-10 border-b-4 border-theme-primary">
+            <h1 class="text-3xl md:text-4xl font-arcade uppercase leading-snug">{{ site.data.content.name }}</h1>
+            <p class="text-theme-accent text-2xl font-semibold mt-4">> {{ site.data.content.title }}</p>
+            <div class="flex flex-wrap gap-4 mt-6 text-xl text-theme-muted">
+                <span><i class="fa-solid fa-envelope mr-1"></i> {{ site.data.content.email }}</span>
+                <span><i class="fa-brands fa-linkedin mr-1"></i> {{ site.data.content.linkedin }}</span>
+            </div>
+        </header>
+
+        <div class="p-10">
+            <!-- SUMMARY -->
+            <section class="mb-12">
+                <h2 class="text-sm font-arcade text-theme-primary mb-5 tracking-widest">PLAYER_PROFILE</h2>
+                <p class="text-theme-body leading-relaxed text-2xl">{{ site.data.content.summary }}</p>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="mb-12">
+                <div class="flex justify-between items-center mb-8 border-b border-theme-border/50 pb-2">
+                    <h2 class="text-sm font-arcade text-theme-primary tracking-widest">MISSION_LOG</h2>
+                    <span class="text-sm text-theme-accent animate-pulse">PRESS TO EXPAND</span>
+                </div>
+                
+                {% for job in site.data.content.jobs %}
+                <details class="group mb-8 last:mb-0 border-b border-theme-border pb-6 last:border-0 last:pb-0">
+                    
+                    <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <div class="w-full transition-all duration-200 group-hover:opacity-80">
+                            
+                            <div class="flex flex-col md:flex-row justify-between items-baseline mb-2">
+                                <h3 class="text-sm md:text-base font-arcade text-theme-heading group-open:text-theme-accent transition-colors leading-relaxed">{{ job.role }}</h3>
+                                <span class="text-xl text-theme-muted mt-2 md:mt-0">[{{ job.date }}]</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mt-3">
+                                <p class="text-theme-primary text-2xl font-bold">> {{ job.company }}</p>
+                                
+                                <div class="text-lg font-bold text-theme-bg bg-theme-accent px-3 py-1 rounded-none border-2 border-theme-accent">
+                                    <span class="flex items-center gap-2 group-open:hidden">
+                                        ACCESS DATA <i class="fa-solid fa-caret-down"></i>
+                                    </span>
+                                    <span class="hidden items-center gap-2 group-open:flex">
+                                        CLOSE LINK <i class="fa-solid fa-caret-up"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </summary>
+                    
+                    <div class="mt-6 animate-fade-in pl-4 border-l-4 border-theme-primary/40 bg-black/20 p-4 rounded-r-lg">
+                        <ul class="space-y-4">
+                            {% for bullet in job.bullets %}
+                            <li class="flex items-start text-theme-body text-2xl">
+                                <span class="text-theme-accent mr-3 mt-1 text-sm font-arcade">></span>
+                                <span class="leading-snug">{{ bullet }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </details>
+                {% endfor %}
+            </section>
+
+            <!-- SKILLS -->
+            <section class="pt-8 border-t-2 border-dashed border-theme-border">
+                <h2 class="text-sm font-arcade text-theme-primary mb-6 tracking-widest">INVENTORY_SKILLS</h2>
+                <div class="flex flex-wrap gap-3">
+                    {% for skill in site.data.content.skills %}
+                    <span class="px-3 py-2 bg-theme-pill-bg text-theme-pill-text rounded-none text-xl font-bold uppercase tracking-wider border-2 border-theme-border">
+                        {{ skill }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
