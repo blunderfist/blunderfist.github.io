@@ -1,92 +1,66 @@
-personal_info:
-  name: "Blunderfist"
-  title: "AI Engineer | Machine Learning Engineer | Data Scientist"
-  email: "blunderfist"
-  linkedin: "www.linkedin.com/in"
-  github: "github.com/blunderfist"
+# PERSONAL INFO
+name: "Blunderfist"
+title: "AI Engineer"
+email: "Blunderfist"
+linkedin: "www.linkedin.com/in"
+github: "github.com/blunderfist"
 
-professional_summary:
-  summary: >
-    AI Engineer and Data Scientist with experience in artificial intelligence (AI),
-    machine learning (ML), data science, and research computing. Skilled in developing
-    agentic AI systems, analytical pipelines, and production-ready models within academic
-    and applied research environments. Strong background in Python, containerization,
-    and scalable data workflows.
+# PROFESSIONAL SUMMARY
+summary: >
+  AI Engineer and Data Scientist with experience in artificial intelligence (AI),
+  machine learning (ML), and data science within research and applied engineering
+  environments. Strong background in Python-based model development, agentic AI systems,
+  and scalable analytical pipelines. Proven ability to translate complex technical
+  concepts into production-ready solutions supporting academic and applied research.
 
-core_competencies:
+# SKILLS (Categorized)
+skills:
   - "Artificial Intelligence (AI)"
   - "Machine Learning (ML)"
   - "Data Science"
-  - "Agentic AI Systems"
+  - "Agentic AI Development"
   - "Python Programming"
-  - "Model Development"
-  - "Data Analysis"
+  - "Docker & Containerization"
+  - "Kubernetes"
   - "Research Computing"
-  - "System Design"
-  - "Cross-Functional Collaboration"
+  - "Data Analysis & Modeling"
 
-technical_skills:
-  programming_languages:
-    - "Python"
-  machine_learning:
-    - "Machine Learning"
-    - "Applied AI"
-    - "Model Training"
-    - "Data Modeling"
-  data_and_analytics:
-    - "Data Science"
-    - "Data Analysis"
-    - "Analytical Pipelines"
-  devops_and_infrastructure:
-    - "Docker"
-    - "Kubernetes"
-    - "Containerization"
-  research_tools:
-    - "Research Computing"
-    - "Experimental Analysis"
-
-experience:
+# EXPERIENCE
+jobs:
   - company: "Florida Atlantic University"
     role: "AI Engineer"
-    date: "May 2025 - Present"
-    responsibilities:
-      - "Develop and deploy artificial intelligence and machine learning solutions in a research computing environment."
-      - "Design agentic AI systems supporting academic and applied engineering initiatives."
-      - "Collaborate with researchers and faculty to translate AI and data science concepts into working systems."
-      - "Support model development, experimentation, and evaluation workflows."
+    date: "May 2025 — PRESENT"
+    bullets:
+      - "Developed and deployed artificial intelligence and machine learning solutions in a research computing environment."
+      - "Designed agentic AI systems supporting academic research and applied engineering initiatives."
+      - "Collaborated with faculty and research teams to translate AI and data science concepts into operational systems."
 
   - company: "Florida Atlantic University"
     role: "Data Scientist"
-    date: "February 2024 - May 2025"
-    responsibilities:
-      - "Performed data analysis and data science tasks to support research and institutional projects."
+    date: "February 2024 — May 2025"
+    bullets:
+      - "Performed data analysis and machine learning tasks to support research and institutional projects."
       - "Built and maintained data pipelines and analytical workflows using Python."
-      - "Applied machine learning techniques to structured and unstructured datasets."
+      - "Applied statistical and machine learning techniques to structured and unstructured datasets."
 
   - company: "Florida Atlantic University"
     role: "Programmer and Systems Analyst"
-    date: "January 2023 - February 2024"
-    responsibilities:
+    date: "January 2023 — February 2024"
+    bullets:
       - "Developed and maintained software systems supporting research and analytics initiatives."
       - "Assisted with system analysis, data processing, and technical troubleshooting."
-      - "Collaborated with stakeholders to support operational and research computing needs."
+      - "Collaborated with stakeholders to support research computing and operational needs."
 
   - company: "Florida Atlantic University"
     role: "Graduate Research Assistant"
-    date: "October 2021 - January 2023"
-    responsibilities:
+    date: "October 2021 — January 2023"
+    bullets:
       - "Supported graduate-level research in data science, artificial intelligence, and analytics."
       - "Conducted experimental analysis and assisted with research data preparation."
-      - "Contributed to academic projects involving big data and applied machine learning."
+      - "Contributed to academic projects involving big data analytics and applied machine learning."
 
+# EDUCATION
 education:
   - school: "Florida Atlantic University"
-    degree: "Master of Science in Data Science and Engineering"
+    degree: "M.S. in Data Science and Engineering"
     year: "2023"
-
-certifications:
-  - "Neo4j Certified Professional"
-  - "IBM Data Science Specialization"
-  - "Google Business Intelligence Specialization"
-  - "DeepLearning.AI TensorFlow Developer Specialization"
-  - "AI for Work and Life"
