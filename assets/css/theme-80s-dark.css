@@ -1,4 +1,6 @@
-/* assets/css/theme-80s-dark.css */
+/* Fallback: Prevents white screen if Tailwind loads slowly */
+body { background-color: #05010a; color: #fbeaff; }
+
 :root {
     /* Backgrounds & Cards - The Deep Void */
     --color-bg: #05010a;        
@@ -16,7 +18,7 @@
     --color-accent: #ffe700;    /* Neon Yellow */
     
     /* Header specific */
-    --color-header-bg: #0b0316; /* Near black to contrast the card */
+    --color-header-bg: #0b0316; 
     --color-header-text: #05d9e8; 
     
     /* Skill Pills */
@@ -24,19 +26,12 @@
     --color-pill-text: #05d9e8; 
 }
 
-/* 
-   OPTIONAL 80s BONUS: 
-   Add native neon glowing effects specifically for this theme! 
-*/
-h1, h3 {
-    text-shadow: 0 0 8px rgba(5, 217, 232, 0.5);
-}
+/* 80s Arcade Glow Effects */
+h1, h3 { text-shadow: 0 0 10px rgba(5, 217, 232, 0.6); }
+h2, p.text-theme-primary { text-shadow: 0 0 10px rgba(255, 42, 109, 0.6); }
+.bg-theme-pill-bg { box-shadow: 0 0 12px rgba(67, 29, 117, 0.9); }
 
-h2, p.text-theme-primary {
-    text-shadow: 0 0 8px rgba(255, 42, 109, 0.4);
-}
-
-/* Give the skill pills a subtle radioactive border glow */
-.bg-theme-pill-bg {
-    box-shadow: 0 0 10px rgba(67, 29, 117, 0.8);
-}
+/* Custom scrollbar for that extra retro feel */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-primary); }
